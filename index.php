@@ -7,19 +7,23 @@
 </head>
 <body>
     <?php
-        echo "<p>Hello, User!<br><br></p>";
+        echo "<h1>Registration<br><br></h1>";
     ?>
 
     <form method="post" action="display.php">
         Please fill out the form below: <br>
-        <label> First Name:</label>
+        <label> Full Name:</label>
         <input type="text" name="first_name" placeholder="First Name" required><br>
-        <label> Last Name:</label>
-        <input type="text" name="last_name" placeholder="Last Name" required><br>
         <label> Email:</label>  
         <input type="email" name="email" placeholder="Email" required><br>
+        <label> Username:</label>
+        <input type="text" name="username" placeholder="Username" required><br>
         <label> Password:</label>
-        <input type="password" name="password" placeholder="Password" required><br><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <label> Date of Birth:</label>
+        <input type="date" name="dob" placeholder="Date of Birth" required><br>
+        <label> Phone Number:</label>
+        <input type="tel" name="phone" placeholder="Phone Number" required><br><br>
         <input type="submit" value="Submit">
     </form>
 </body>
