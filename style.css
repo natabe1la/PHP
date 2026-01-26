@@ -1,9 +1,61 @@
-.body{
-    position: relative;
-    max-width: 270px;
-    height: 490px;
-    padding: 1rem;
-    text-align: center;
-    border-radius: 20px;
+
+.profile {
+  margin: 20% auto;
+  position: relative;
+  max-width: 380px;
+  height: 420px;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 10px 10px 30px rgb(137, 135, 123);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  background-color: white;
 }
+
+
+form .button {
+  margin: 0;
+  text-align: center;
+  background-color: maroon;
+  color: white;
+  border: 2px solid maroon;
+  border-radius: 10px;
+  padding: 5px 82px;
+  width: 250px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.button:hover {
+  background-color: rgb(88, 8, 8);
+}
+
+form .space{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+form .space input {
+    flex: 1;                 
+    padding: 6px 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+form .space label{
+    width: 120px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+form .label{
+    width: 180px;
+    margin-right: 20px;
+}
+
+
+
 
