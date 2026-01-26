@@ -1,0 +1,9 @@
+.body{
+    position: relative;
+    max-width: 270px;
+    height: 490px;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 20px;
+}
+
