@@ -3,28 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Register</title>
 </head>
-<body>
+<body style=background-color:aliceblue;>
+    <div class="profile">
     <?php
-        echo "<h1>Registration<br><br></h1>";
+        echo "<h1>Account Registration Form</h1>";
+        echo "<p> Please fill in the form below.</p>";
+        
+
     ?>
 
     <form method="post" action="login.php">
-        Please fill out the form below: <br>
+        <div class="space">
         <label> Full Name:</label>
-        <input type="text" name="full_name" placeholder="Full Name" required><br>
+        <input type="text" name="full_name" placeholder="Full Name" class="label" required><br>
+        </div>
+
+        <div class="space">
         <label> Email:</label>  
-        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="email" name="email" placeholder="Email" class="label" required>
+        </div>
+
+        <div class="space">
         <label> Username:</label>
-        <input type="text" name="username" placeholder="Username" required><br>
+        <input type="text" name="username" placeholder="Username" class="label" required>
+        </div>
+
+        <div class="space">
         <label> Password:</label>
-        <input type="password" name="password" placeholder="Password" required><br>
+        <input type="password" name="password" placeholder="Password" class="label" required>
+        </div>
+
+        <div class="space">
         <label> Date of Birth:</label>
-        <input type="date" name="dob" placeholder="Date of Birth" required><br>
+        <input type="date" name="dob" placeholder="Date of Birth" class="label" required>
+        </div>
+
+        <div class="space">
         <label> Phone Number:</label>
-        <input type="tel" name="phone" placeholder="Phone Number" required><br><br>
-        <input type="submit" value="Submit">
-    </form>
+        <input type="tel" name="phone" placeholder="Phone Number" class="label" required>
+        </div>
+
+        <button type="submit" class="button">
+            Register
+        </button>
+    </form> 
+    <p>Already have an account? <a href="login.php">Login here</a></p>
+    </div>
+
 </body>
 </html>
