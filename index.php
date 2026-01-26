@@ -10,10 +10,10 @@
         echo "<h1>Registration<br><br></h1>";
     ?>
 
-    <form method="post" action="display.php">
+    <form method="post" action="login.php">
         Please fill out the form below: <br>
         <label> Full Name:</label>
-        <input type="text" name="first_name" placeholder="First Name" required><br>
+        <input type="text" name="full_name" placeholder="Full Name" required><br>
         <label> Email:</label>  
         <input type="email" name="email" placeholder="Email" required><br>
         <label> Username:</label>

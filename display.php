@@ -6,13 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h3> Form Details </h3>
-    <p> This area displays the information you entered in the submittion form except for the password. </p>
+    <h2> Account Management </h2>
+    <p> This area displays the username and the password. </p>
     <hr size=1px color=black>
     <?php
-        echo "<p> First Name: " . $_POST['first_name'] . "</p>";
-        echo "<p> Last Name: " . $_POST['last_name'] . "</p>";
-        echo "<p> Email: " . $_POST['email'] . "</p>";
+        echo "<p> Username: " . $_POST['username'] . "</p>";
+        echo "<p> Password: " . $_POST['password'] . "</p>";
     ?>
     <hr size=1px color=black>
     <form method="get" action="index.php">
