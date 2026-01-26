@@ -13,7 +13,6 @@
   background-color: white;
 }
 
-
 form .button {
   margin: 0;
   text-align: center;
@@ -56,6 +55,29 @@ form .label{
     margin-right: 20px;
 }
 
+.login{
+    margin: 20% auto;
+    position: relative;
+    max-width: 400px;
+    height: 250px;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 10px 10px 30px rgb(137, 135, 123);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    background-color: white;
+}
 
+form .space l_label{
+    width: 105px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+form .l_label{
+    width: 105x;
+    margin-right: 20px;
+}
 
 
