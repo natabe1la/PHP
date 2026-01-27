@@ -11,9 +11,8 @@
     <?php
         echo "<h1>Account Registration Form</h1>";
         echo "<p> Please fill in the form below.</p>";
-        
-
     ?>
+    <br>
 
     <form method="post" action="login.php">
         <div class="space">
@@ -46,10 +45,12 @@
         <input type="tel" name="phone" placeholder="Phone Number" class="label" required>
         </div>
 
+        <br>
+
         <button type="submit" class="button">
             Register
         </button>
-    </form> 
+    </form>
     <p>Already have an account? <a href="login.php">Login here</a></p>
     </div>
 
