@@ -11,10 +11,24 @@
     <?php
         echo "<h1>Account Registration Form</h1>";
         echo "<p> Please fill in the form below.</p>";
+        
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $password = $_POST['password'] ?? '';
+            $confirm_password = $_POST['confirm_password'] ?? '';
+            
+            if (strlen($password) < 8) {
+                echo "<p style='color:red;'>Password must be at least 8 characters long.</p>";
+            } elseif ($password !== $confirm_password) {
+                echo "<p style='color:red;'>Passwords do not match. Please try again.</p>";
+            } else {
+                header("Location: login.php");
+                exit();
+            }
+        }
     ?>
     <br>
 
-    <form method="post" action="login.php">
+    <form method="post" action="index.php">
         <div class="space">
         <label> Full Name:</label>
         <input type="text" name="full_name" placeholder="Full Name" class="label" required><br>
