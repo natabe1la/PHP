@@ -21,18 +21,28 @@
         </div>
 
         <div class="space">
-        <label> Email:</label>  
+        <label> Email Address:</label>  
         <input type="email" name="email" placeholder="Email" class="label" required>
         </div>
 
         <div class="space">
-        <label> Username:</label>
-        <input type="text" name="username" placeholder="Username" class="label" required>
+        <label> Home Address:</label>
+        <input type="text" name="address" placeholder="Home Address" class="label" required>
+        </div>
+
+        <div class="space">
+        <label> Age:</label>
+        <input type="number" name="age" placeholder="Age" class="label" required>
         </div>
 
         <div class="space">
         <label> Password:</label>
         <input type="password" name="password" placeholder="Password" class="label" required>
+        </div>
+
+        <div class="space">
+        <label> Confirm Password:</label>
+        <input type="password" name="confirm_password" placeholder="Confirm Password" class="label" required>
         </div>
 
         <div class="space">
