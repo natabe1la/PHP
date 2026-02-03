@@ -1,15 +1,36 @@
 <?php
-$username = $_POST['username'] ?? '';
-$password = $_POST['password'] ?? '';
-$full_name = $_POST['full_name'] ?? '';
-$email = $_POST['email'] ?? '';
-$other_username = $_POST['other_username'] ?? '';
-$other_password = $_POST['other_password'] ?? '';
-$dob = $_POST['dob'] ?? '';
-$phone = $_POST['phone'] ?? '';
-$address = $_POST['address'] ?? '';
-$contact_number = $_POST['contact_number'] ?? '';
-$description = $_POST['description'] ?? '';
+session_start();
+
+if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true){
+    header("Location: login.php");
+    exit();
+}
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "phpdb";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if($conn->connect_error){
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$email = $_SESSION['email'];
+$userData = null;
+
+$sql = "SELECT fullname, email, address, age, password, dob, contact FROM users WHERE email = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if($result->num_rows > 0){
+    $userData = $result->fetch_assoc();
+} else {
+    die("User data not found!");
+}
 ?>
 
 <!DOCTYPE html>
@@ -117,51 +138,20 @@ input[type="submit"]:hover {
     </style>
 </head>
 <body>
-    <h2> Welcome, <?php echo $_POST['username']; ?>! </h2>
+    <h2> Welcome, <?php echo htmlspecialchars($userData['fullname']); ?>! </h2>
     <hr size=1px color=black>
     <h3> Account Information: </h3>
-    <p> Full Name: <?php echo $_POST['full_name']; ?> </p>
-    <p> Email: <?php echo $_POST['email']; ?> </p>
-    <p> Username: <?php echo $_POST['other_username']; ?> </p>
-    <p> Password: <?php echo $_POST['other_password']; ?> </p>
-    <p> Date of Birth: <?php echo $_POST['dob']; ?> </p>
-    <p> Phone Number: <?php echo $_POST['phone']; ?> </p>
-
-    <?php if (!($address && $contact_number && $description)): ?>
-    <h3>Additional Information:</h3>
-    <form method="post" action="">
-        <label> Address:</label>
-        <input type="text" name="address" placeholder="Address" value="<?php echo $address; ?>" required><br><br>
-        <label> Contact Number:</label>
-        <input type="tel" name="contact_number" placeholder="Contact Number" value="<?php echo $contact_number; ?>" required><br><br>
-        <label> Short Personal Description:</label><br>
-        <textarea name="description" rows="4" placeholder="Describe yourself..." required><?php echo $description; ?></textarea><br><br>
-        
-        <input type="hidden" name="full_name" value="<?php echo $full_name; ?>">
-        <input type="hidden" name="email" value="<?php echo $email; ?>">
-        <input type="hidden" name="other_username" value="<?php echo $other_username; ?>">
-        <input type="hidden" name="other_password" value="<?php echo $other_password; ?>">
-        <input type="hidden" name="dob" value="<?php echo $dob; ?>">
-        <input type="hidden" name="phone" value="<?php echo $phone; ?>">
-        <input type="hidden" name="username" value="<?php echo $username; ?>">
-        <input type="hidden" name="password" value="<?php echo $password; ?>">
-        
-        <input type="submit" value="Submit">
-    </form>
-    <?php endif; ?>
-
-    <?php
-    if ($address && $contact_number && $description): ?>
-        <h3> Additional Information: </h3>
-        <p> Address: <?php echo $address; ?> </p>
-        <p> Contact Number: <?php echo $contact_number; ?> </p>
-        <p> Personal Description: <?php echo $description; ?> </p>
-    <?php endif; ?>
+    <p> Full Name: <?php echo htmlspecialchars($userData['fullname']); ?> </p>
+    <p> Email: <?php echo htmlspecialchars($userData['email']); ?> </p>
+    <p> Address: <?php echo htmlspecialchars($userData['address']); ?> </p>
+    <p> Age: <?php echo htmlspecialchars($userData['age']); ?> </p>
+    <p> Date of Birth: <?php echo htmlspecialchars($userData['dob']); ?> </p>
+    <p> Contact Number: <?php echo htmlspecialchars($userData['contact']); ?> </p>
     
     <hr size=1px color=black>
-    <form method="get" action="login.php">
-        Back to Form Page: <br>
-        <input type="submit" value="Back">
+    
+    <form method="post" action="logout.php">
+        <input type="submit" value="Logout">
     </form>
 </body>
 </html>

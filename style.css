@@ -1,9 +1,9 @@
 
 .profile {
-  margin: 11% auto;
+  margin: 9% auto;
   position: relative;
   max-width: 380px;
-  height: 530px;
+  height: 560px;
   padding: 1rem;
   text-align: center;
   border-radius: 20px;
@@ -59,7 +59,7 @@ form .label{
     margin: 16% auto;
     position: relative;
     max-width: 400px;
-    height: 275px;
+    height: 300px;
     padding: 1rem;
     text-align: center;
     border-radius: 20px;
